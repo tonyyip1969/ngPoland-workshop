@@ -6,7 +6,7 @@ Please folow the instructions and install angular-cli.
 ## Development server
 Clone this project, cd to the root directory and 
 run `ng serve` for a dev server.
- 
+
 Navigate to `http://localhost:4200/`. 
 The app will automatically reload if you change any of the source files.
 
