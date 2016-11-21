@@ -8,12 +8,15 @@ import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import {StoreService} from "./store.service";
 import {ListActionsService} from "./actions/list-actions.service";
+import { LoginComponent } from './login/login.component';
+import {UserActionsService} from "./actions/user-actions.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    ItemComponent
+    ItemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,15 @@ import {ListActionsService} from "./actions/list-actions.service";
       provide: ListActionsService,
       useFactory: (store) => new ListActionsService(store),
       deps: [StoreService]
-    }
+    },
+
+    {
+      provide: UserActionsService,
+      useFactory: (store) => new UserActionsService(store),
+      deps: [StoreService]
+    },
+
+
   ],
 
   bootstrap: [AppComponent]

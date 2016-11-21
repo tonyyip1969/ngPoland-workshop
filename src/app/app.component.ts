@@ -5,13 +5,18 @@ import {ListActionsService} from "./actions/list-actions.service";
 @Component({
   selector: 'app-root',
   template: `
+
+    <div class="container">
+      <app-login></app-login>
+    </div>
+
     <div class="container">
     <h1>NgPoland Angular Workshop</h1>
    
     <input type="text" #input>
     <button (click)="list.addItem(input.value)">add</button>
     
-    <app-list [items]="store.state" ></app-list>
+    <app-list [items]="store.state.list" ></app-list>
     
     </div>
 `,
