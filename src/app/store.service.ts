@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {createStore, combineReducers, compose} from "redux";
+import {createStore, combineReducers, compose, applyMiddleware} from "redux";
 import {listReducer} from "./reducers/list.reducer";
 import {userReducer} from "./reducers/user.reducer";
+import {auth} from "./middlewares/auth.middleware";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -16,7 +17,10 @@ export class StoreService {
   constructor() {
     this._store = createStore(
         rootReducer,
-        compose(window.devToolsExtension  && window.devToolsExtension() )
+        compose(
+            applyMiddleware(auth),
+            window.devToolsExtension  && window.devToolsExtension()
+        )
     );
   }
 
