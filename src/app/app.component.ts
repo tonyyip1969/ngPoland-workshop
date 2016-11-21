@@ -6,12 +6,14 @@ import {ListActionsService} from "./actions/list-actions.service";
   selector: 'app-root',
   template: `
 
-    <div class="container">
+    <div *ngIf="!store.state.user.user.name" class="container">
       <app-login></app-login>
     </div>
+    
+    <span *ngIf="store.state.user.pending">LOADING....</span>
 
-    <div class="container">
-    <h1>NgPoland Angular Workshop</h1>
+    <div *ngIf="store.state.user.user.name" class="container">
+    <h1>Hello {{ store.state.user.user.name }}</h1>
    
     <input type="text" #input>
     <button (click)="list.addItem(input.value)">add</button>
