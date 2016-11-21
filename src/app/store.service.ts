@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {createStore} from "redux";
+import {listReducer} from "./reducers/list.reducer";
 
 @Injectable()
 export class StoreService {
@@ -7,7 +8,7 @@ export class StoreService {
   private _store: any;
 
   constructor() {
-    this._store = createStore( state => state );
+    this._store = createStore( listReducer);
   }
 
   get state(){

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import {StoreService} from "./store.service";
+import {ListActionsService} from "./actions/list-actions.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,17 @@ import {StoreService} from "./store.service";
     FormsModule,
     HttpModule
   ],
-  providers: [StoreService],
+  providers: [
+    { provide: StoreService, useValue: new StoreService() },
+    {
+      provide: ListActionsService,
+      useFactory: (store) => new ListActionsService(store),
+      deps: [StoreService]
+    }
+  ],
+
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
