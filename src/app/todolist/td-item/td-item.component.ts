@@ -12,7 +12,8 @@ import { Component, OnInit, Input } from '@angular/core';
                  type="checkbox"
                  [checked]="item.done">
 
-          <label>{{ item.title }}</label>
+          <label>{{ item.title | upup:'!':'_' }}</label>
+          {{ today | date:'short' | uppercase }}
 
           <button (click)="list.removeItem(item)" class="destroy"></button>
 
@@ -28,5 +29,9 @@ export class TdItemComponent  {
   @Input()
   public item:Item;
 
+  today = new Date();
+
   constructor(private list: Todolist) { }
+
+  
 }
