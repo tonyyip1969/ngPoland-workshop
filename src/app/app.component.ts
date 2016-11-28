@@ -1,10 +1,14 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: 'app-root',
-  template: `<h1>Angular workshop starter</h1>`,
+  template: `
+    <app-todolist></app-todolist>                            
+  `,
 })
 
-export class AppComponent {
+export class AppComponent  {
+
+  constructor() {}
 
 }
