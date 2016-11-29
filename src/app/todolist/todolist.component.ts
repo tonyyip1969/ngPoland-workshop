@@ -1,9 +1,10 @@
+import { Router } from '@angular/router';
 import { Todolist } from './todolist';
 import { Item } from './item';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute} from '@angular/router';
 
-@Component({
-  selector: 'app-todolist',
+@Component({  
   template: `
   <section class="todoapp">
    <app-td-header [title]="title" ></app-td-header>
@@ -16,8 +17,10 @@ export class TodolistComponent  {
   
   public title: string;
   
-  constructor() {       
-    this.title = "TODOS";            
+  constructor(route:ActivatedRoute) {       
+    this.title = "TODOS";
+
+    route.params.subscribe( param => console.log(param) )            
   }
 
 }

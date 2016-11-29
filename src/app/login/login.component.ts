@@ -1,9 +1,9 @@
+import { Router } from '@angular/router';
 import {Component} from "@angular/core";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {CustomValidators} from "./custom-validators";
 
-@Component({
-  selector: 'app-login',
+@Component({  
   template: `
     <form [formGroup]="loginForm" 
           (ngSubmit)="login()"
@@ -20,7 +20,7 @@ import {CustomValidators} from "./custom-validators";
                  placeholder="password">
                                   
       <button type="submit">Login</button>
-    </form>
+    </form>    
   `,
 })
 
@@ -29,13 +29,15 @@ export class LoginComponent {
   public loginForm: FormGroup;
   public username: FormControl;
   public password: FormControl;
+  public router:Router;
 
-  constructor() {
+  constructor(router:Router) {
+    this.router = router;
     this.username = new FormControl('', Validators.compose([
       CustomValidators.noSpace,
       CustomValidators.isNir
     ]));
-
+    
     this.password = new FormControl('');
 
     this.loginForm = new FormGroup({
@@ -45,6 +47,7 @@ export class LoginComponent {
   }
 
   public login() {
+    this.router.navigate(['list']);
     console.log(this.loginForm);
   }
 }
