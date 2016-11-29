@@ -8,13 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
     <li>
         <div class="view">
 
-          <input class="toggle"
+          <input class="toggle"          
                  type="checkbox"
                  [checked]="item.done">
 
-          <label>{{ item.title | upup:'!':'_' }}</label>
-          {{ today | date:'short' | uppercase }}
-
+          <label sunshine disabled>{{ item.title | upup:'!':'_' }}</label>
+         
           <button (click)="list.removeItem(item)" class="destroy"></button>
 
         </div>
