@@ -11,9 +11,11 @@ import { Component, OnInit, Input } from '@angular/core';
           <input class="toggle"          
                  type="checkbox"
                  [checked]="item.done">
-
-          <label sunshine disabled>{{ item.title | upup:'!':'_' }}</label>
-         
+       
+          <label sunshine>{{ item.title | upup:'!':'_' }}          
+            <span *onlyIf="isVisiable">{{ item.created | date }}</span>                                            
+          </label>
+                   
           <button (click)="list.removeItem(item)" class="destroy"></button>
 
         </div>
@@ -27,10 +29,11 @@ export class TdItemComponent  {
 
   @Input()
   public item:Item;
+  public isVisiable: boolean = true;
 
-  today = new Date();
+  constructor(private list: Todolist) {
 
-  constructor(private list: Todolist) { }
+  }
 
   
 }

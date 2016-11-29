@@ -14,8 +14,12 @@ export class Todolist {
     }
 
     public addItem(title: string): void {
-        this.items.push(new Item(title));
-        this.storage.save('LIST', this.items);        
+        this.items.push({
+            title:title,
+            done: false,
+            created: new Date()
+        });
+        this.storage.save('LIST', this.items);
     }
 
     public removeItem(item:Item): void {
