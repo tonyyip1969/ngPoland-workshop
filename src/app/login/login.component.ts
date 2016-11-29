@@ -27,7 +27,6 @@ import {CustomValidators} from "./custom-validators";
 export class LoginComponent {
 
   public loginForm: FormGroup;
-  public basicInfo: FormGroup;
   public username: FormControl;
   public password: FormControl;
 
@@ -39,13 +38,9 @@ export class LoginComponent {
 
     this.password = new FormControl('');
 
-    this.basicInfo = new FormGroup({
+    this.loginForm = new FormGroup({
       username: this.username,
       password: this.password
-    })
-
-    this.loginForm = new FormGroup({
-      info: this.basicInfo
     });
   }
 
