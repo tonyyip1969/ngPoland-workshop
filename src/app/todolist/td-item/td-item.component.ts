@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-td-item',
   template: `
-    <li>
+    <li [class.completed]="item.done">
         <div class="view">
 
           <input class="toggle"          
