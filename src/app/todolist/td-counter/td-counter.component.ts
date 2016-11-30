@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-td-counter',
   template: `
     <span class="todo-count">
-      <strong>1</strong>
+      <strong>{{ value }}</strong>
       item left
     </span>
   `
 })
-export class TdCounterComponent implements OnInit {
+export class TdCounterComponent  {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() value: number;
 
 }

@@ -1,20 +1,17 @@
+import { Todolist } from './../todolist';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-td-footer',
   template: `
   <footer class="footer">    
-    <app-td-counter></app-td-counter>
-    <button class="clear-completed">Clear completed</button>
-  </footer>
-    
+    <app-td-counter [value]="list.items | count:'done':false"></app-td-counter>
+    <app-action-button (action)="list.clearCompleted($event)" label="clear"></app-action-button>    
+  </footer>    
   `  
 })
-export class TdFooterComponent implements OnInit {
+export class TdFooterComponent  {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(private list: Todolist) {}
 
 }

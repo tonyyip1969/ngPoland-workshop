@@ -5,12 +5,12 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-td-item',
   template: `
-    <li [class.completed]="item.done">
+    <li [ngClass]="{ completed: item.done }">
         <div class="view">
 
           <input class="toggle"          
-                 type="checkbox"
-                 [checked]="item.done">
+                 type="checkbox"                 
+                 [(ngModel)]="item.done">
        
           <label sunshine>{{ item.title | upup:'!':'_' }}</label>
                    

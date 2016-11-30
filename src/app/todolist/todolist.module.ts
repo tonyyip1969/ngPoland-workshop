@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { UtilsModule } from './../utils/utils.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,7 +15,7 @@ import { Todolist } from './todolist';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
-  imports     : [CommonModule, UtilsModule, HttpModule],
+  imports     : [CommonModule, UtilsModule, HttpModule, FormsModule],
   providers   : [Todolist],
   declarations: [TodolistComponent, TdHeaderComponent, TdListComponent, TdFooterComponent, TdItemsComponent, TdItemComponent, TdInputComponent, TdCounterComponent, TdToggleComponent],
   exports     : [TodolistComponent]

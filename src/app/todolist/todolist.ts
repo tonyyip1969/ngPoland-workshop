@@ -14,11 +14,11 @@ export class Todolist {
     }
 
     public addItem(title: string): void {
-        this.items.push({
+        this.items = [...this.items, {
             title:title,
             done: false,
             created: new Date()
-        });
+        }]
         this.storage.save('LIST', this.items);
     }
 
@@ -26,6 +26,10 @@ export class Todolist {
         const index = this.items.indexOf(item);
         this.items.splice(index, 1);          
         this.storage.save('LIST', this.items);           
+    }
+
+    public clearCompleted(event) {
+        console.log(`clearCompleted ${event}`);        
     }
 
 } 
