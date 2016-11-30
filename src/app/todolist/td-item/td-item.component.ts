@@ -12,9 +12,7 @@ import { Component, OnInit, Input } from '@angular/core';
                  type="checkbox"
                  [checked]="item.done">
        
-          <label sunshine>{{ item.title | upup:'!':'_' }}          
-            <span *onlyIf="isVisiable">{{ item.created | date }}</span>                                            
-          </label>
+          <label sunshine>{{ item.title | upup:'!':'_' }}</label>
                    
           <button (click)="list.removeItem(item)" class="destroy"></button>
 
