@@ -10,10 +10,11 @@ import { TdItemComponent } from './td-item/td-item.component';
 import { TdInputComponent } from './td-input/td-input.component';
 import { TdCounterComponent } from './td-counter/td-counter.component';
 import { TdToggleComponent } from './td-toggle/td-toggle.component';
-import { Todolist } from './todolist'
+import { Todolist } from './todolist';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
-  imports     : [CommonModule, UtilsModule],
+  imports     : [CommonModule, UtilsModule, HttpModule],
   providers   : [Todolist],
   declarations: [TodolistComponent, TdHeaderComponent, TdListComponent, TdFooterComponent, TdItemsComponent, TdItemComponent, TdInputComponent, TdCounterComponent, TdToggleComponent],
   exports     : [TodolistComponent]
